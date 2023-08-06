@@ -1,449 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DailyQuote</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lime Store</title>
+  <style>
+    /* Stil für den App Store */
+    body {
+      font-family: Arial, sans-serif;
+    }
 
-        .light-theme {
-            background-color: #f2f2f2;
-            color: #333;
-        }
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
 
-        .dark-theme {
-            background-color: #333;
-            color: #f2f2f2;
-        }
+    .app-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
 
-        .anime-theme {
-            background-image: url("wallpaper.gif");
-            background-size: cover;
-            color: white;
-        }
+    .app-card {
+      width: 300px;
+      margin: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
 
-        .container {
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    .app-image {
+      max-width: 200px;
+      max-height: 200px;
+    }
 
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        .quote-container {
-            margin-top: 20px;
-        }
-
-        #quote {
-            font-size: 18px;
-            font-style: italic;
-        }
-
-        #author {
-            margin-top: 10px;
-        }
-
-        #nextBtn {
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        #nextBtn:hover {
-            background-color: #0056b3;
-        }
-
-        #shareBtn {
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        #shareBtn:hover {
-            background-color: #0056b3;
-        }
-
-        #randomBtn {
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        #randomBtn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    footer {
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>DailyQuote</h1>
-        <label for="themeSelect">Select Theme:</label>
-        <select id="themeSelect">
-            <option value="light-theme">Light Theme</option>
-            <option value="dark-theme">Dark Theme</option>
-            <option value="anime-theme">Anime Theme</option>
-        </select>
-        <label for="languageSelect">Select Language:</label>
-        <select id="languageSelect">
-            <option value="english">English</option>
-            <option value="german">Deutsch</option>
-        </select>
-        <div class="quote-container">
-            <p id="quote">Loading...</p>
-            <p id="author">Author</p>
-            <button id="nextBtn">Next</button>
-            <button id="shareBtn">Share with X</button>
-            <button id="randomBtn">Random Quote</button>
-        </div>
+  <header>
+    <h1>Lime Store</h1>
+  </header>
+
+  <div class="app-container">
+    <div class="app-card">
+      <a href="nerimity.html"><img src="Download (5).png" alt="App 1" class="app-image"></a>
+      <h2><a href="nerimity.html">Nerimity</a></h2>
+      <p>a Native chat app</p>
     </div>
-    <script>
-        const quotes = [
-            {
-                quote: "The only limit to our realization of tomorrow will be our doubts of today.",
-                author: "Franklin D. Roosevelt"
-            },
-            {
-                quote: "The future belongs to those who believe in the beauty of their dreams.",
-                author: "Eleanor Roosevelt"
-            },
-            {
-                quote: "It does not matter how slowly you go as long as you do not stop.",
-                author: "Confucius"
-            },
-            {
-                quote: "The only way to do great work is to love what you do.",
-                author: "Steve Jobs"
-            },
-            {
-                quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
-                author: "Winston Churchill"
-            },
-            {
-                quote: "The best way to predict the future is to create it.",
-                author: "Peter Drucker"
-            },
-            {
-                quote: "The only person you are destined to become is the person you decide to be.",
-                author: "Ralph Waldo Emerson"
-            },
-            {
-                quote: "The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it.",
-                author: "Jordan Belfort"
-            },
-            {
-                quote: "Success is stumbling from failure to failure with no loss of enthusiasm.",
-                author: "Winston Churchill"
-            },
-            {
-                quote: "Your time is limited, don't waste it living someone else's life.",
-                author: "Steve Jobs"
-            }
-        ];
 
-        const animeQuotes = [
-            {
-                quote: "I'm not gonna run away, I never go back on my word! That's my nindo: my ninja way!",
-                author: "Naruto Uzumaki (Naruto)"
-            },
-            {
-                quote: "It's not the face that makes someone a monster, it's the choices they make with their lives.",
-                author: "Naruto Uzumaki (Naruto)"
-            },
-            {
-                quote: "I'm not a pervert... I'm a super pervert!",
-                author: "Jiraiya (Naruto)"
-            },
-            {
-                quote: "No matter how deep the night, it always turns to day, eventually.",
-                author: "Brook (One Piece)"
-            },
-            {
-                quote: "I want to achieve the goal I set when I was just a kid.",
-                author: "Monkey D. Luffy (One Piece)"
-            },
-            {
-                quote: "I don’t want to conquer anything. I just think the guy with the most freedom in this whole ocean...is the Pirate King!",
-                author: "Monkey D. Luffy (One Piece)"
-            },
-            {
-                quote: "I believe in the heart of the cards!",
-                author: "Yugi Moto (Yu-Gi-Oh!)"
-            },
-            {
-                quote: "I'm going to be the Hokage and surpass all the previous Hokages!",
-                author: "Naruto Uzumaki (Naruto)"
-            },
-            {
-                quote: "The difference between the novice and the master is that the master has failed more times than the novice has tried.",
-                author: "Koro-sensei (Assassination Classroom)"
-            },
-            {
-                quote: "I'll never give up! I'll win with the cards I have!",
-                author: "Yuma Tsukumo (Yu-Gi-Oh! Zexal)"
-            },
-            {
-                quote: "Even if we forget the faces of our friends, we will never forget the bonds that were carved into our souls.",
-                author: "Otonashi Yuzuru (Angel Beats!)"
-            },
-            {
-                quote: "Fear is not evil. It tells you what your weakness is. And once you know your weakness, you can become stronger as well as kinder.",
-                author: "Gildarts Clive (Fairy Tail)"
-            },
-            {
-                quote: "No matter how deep the night, it always turns to day, eventually.",
-                author: "Brook (One Piece)"
-            },
-            {
-                quote: "I want to achieve the goal I set when I was just a kid.",
-                author: "Monkey D. Luffy (One Piece)"
-            },
-            {
-                quote: "I don’t want to conquer anything. I just think the guy with the most freedom in this whole ocean...is the Pirate King!",
-                author: "Monkey D. Luffy (One Piece)"
-            },
-            {
-                quote: "I believe in the heart of the cards!",
-                author: "Yugi Moto (Yu-Gi-Oh!)"
-            },
-            {
-                quote: "I'm going to be the Hokage and surpass all the previous Hokages!",
-                author: "Naruto Uzumaki (Naruto)"
-            },
-            {
-                quote: "The difference between the novice and the master is that the master has failed more times than the novice has tried.",
-                author: "Koro-sensei (Assassination Classroom)"
-            },
-            {
-                quote: "I'll never give up! I'll win with the cards I have!",
-                author: "Yuma Tsukumo (Yu-Gi-Oh! Zexal)"
-            },
-            {
-                quote: "I'm going to be the King of the Pirates!",
-                author: "Monkey D. Luffy (One Piece)"
-            }
-        ];
+    <div class="app-card">
+      <a href="discord.html"><img src="discord.png" alt="App 2" class="app-image"></a>
+      <h2><a href="discord.html">Discord</a></h2>
+      <p>A chat app for Community</p>
+    </div>
 
-        const germanQuotes = [
-            {
-                quote: "Die einzige Grenze für unsere Verwirklichung von morgen sind unsere Zweifel von heute.",
-                author: "Franklin D. Roosevelt"
-            },
-            {
-                quote: "Die Zukunft gehört denen, die an die Schönheit ihrer Träume glauben.",
-                author: "Eleanor Roosevelt"
-            },
-            {
-                quote: "Es ist egal, wie langsam du gehst, solange du nicht stehen bleibst.",
-                author: "Konfuzius"
-            },
-            {
-                quote: "Der einzige Weg, um großartige Arbeit zu leisten, ist, das zu lieben, was du tust.",
-                author: "Steve Jobs"
-            },
-            {
-                quote: "Erfolg ist nicht endgültig, Misserfolg ist nicht tödlich: Entscheidend ist der Mut, weiterzumachen.",
-                author: "Winston Churchill"
-            },
-            {
-                quote: "Der beste Weg, die Zukunft vorauszusagen, ist, sie zu gestalten.",
-                author: "Peter Drucker"
-            },
-            {
-                quote: "Die einzige Person, zu der du bestimmt bist, zu werden, ist die Person, die du beschließt zu sein.",
-                author: "Ralph Waldo Emerson"
-            },
-            {
-                quote: "Das Einzige, was zwischen dir und deinem Ziel steht, ist die Geschichte, die du dir immer wieder erzählst, warum du es nicht erreichen kannst.",
-                author: "Jordan Belfort"
-            },
-            {
-                quote: "Erfolg ist, von Misserfolg zu Misserfolg zu stolpern, ohne Begeisterung zu verlieren.",
-                author: "Winston Churchill"
-            },
-            {
-                quote: "Deine Zeit ist begrenzt, verschwende sie nicht damit, das Leben eines anderen zu leben.",
-                author: "Steve Jobs"
-            }
-        ];
+<div class="app-card">
+     <a href="netflix.html"> <img src="netflix.png" alt="App 2" class="app-image"></a>
+      <h2><a href="netflix.html">Netflix</a></h2>
+      <p>Stream Movies and Series</p>
+    </div>
+    <!-- Hier weitere App-Karten hinzufügen -->
 
-        const germanAnimeQuotes = [
-            {
-                quote: "Ich werde nicht davonlaufen. Ich gehe niemals auf mein Wort zurück! Das ist mein Nindo: mein Ninja-Weg!",
-                author: "Naruto Uzumaki (Naruto)"
-            },
-            {
-                quote: "Es ist nicht das Gesicht, das jemanden zu einem Monster macht, sondern die Entscheidungen, die er in seinem Leben trifft.",
-                author: "Naruto Uzumaki (Naruto)"
-            },
-            {
-                quote: "Ich bin kein Perverser... Ich bin ein Superperverser!",
-                author: "Jiraiya (Naruto)"
-            },
-            {
-                quote: "Egal wie tief die Nacht auch sein mag, sie wird irgendwann zum Tag.",
-                author: "Brook (One Piece)"
-            },
-            {
-                quote: "Ich möchte das Ziel erreichen, das ich mir gesetzt habe, als ich noch ein Kind war.",
-                author: "Monkey D. Luffy (One Piece)"
-            },
-            {
-                quote: "Ich möchte nichts erobern. Ich finde nur, dass derjenige, der in diesem Ozean die meiste Freiheit hat, der König der Piraten ist!",
-                author: "Monkey D. Luffy (One Piece)"
-            },
-            {
-                quote: "Ich glaube an das Herz der Karten!",
-                author: "Yugi Moto (Yu-Gi-Oh!)"
-            },
-            {
-                quote: "Ich werde der Hokage werden und alle vorherigen Hokage übertreffen!",
-                author: "Naruto Uzumaki (Naruto)"
-            },
-            {
-                quote: "Der Unterschied zwischen einem Anfänger und einem Meister ist, dass der Meister öfter gescheitert ist als der Anfänger es versucht hat.",
-                author: "Koro-sensei (Assassination Classroom)"
-            },
-            {
-                quote: "Ich werde niemals aufgeben! Ich werde mit den Karten gewinnen, die ich habe!",
-                author: "Yuma Tsukumo (Yu-Gi-Oh! Zexal)"
-            },
-            {
-                quote: "Selbst wenn wir die Gesichter unserer Freunde vergessen, werden wir die Bande, die in unsere Seelen geschnitzt wurden, niemals vergessen.",
-                author: "Otonashi Yuzuru (Angel Beats!)"
-            },
-            {
-                quote: "Angst ist nicht böse. Sie zeigt dir deine Schwäche. Und wenn du deine Schwäche kennst, kannst du stärker und auch freundlicher werden.",
-                author: "Gildarts Clive (Fairy Tail)"
-            },
-            {
-                quote: "Egal wie tief die Nacht auch sein mag, sie wird irgendwann zum Tag.",
-                author: "Brook (One Piece)"
-            },
-            {
-                quote: "Ich möchte das Ziel erreichen, das ich mir gesetzt habe, als ich noch ein Kind war.",
-                author: "Monkey D. Luffy (One Piece)"
-            },
-            {
-                quote: "Ich möchte nichts erobern. Ich finde nur, dass derjenige, der in diesem Ozean die meiste Freiheit hat, der König der Piraten ist!",
-                author: "Monkey D. Luffy (One Piece)"
-            },
-            {
-                quote: "Ich glaube an das Herz der Karten!",
-                author: "Yugi Moto (Yu-Gi-Oh!)"
-            },
-            {
-                quote: "Ich werde der Hokage werden und alle vorherigen Hokage übertreffen!",
-                author: "Naruto Uzumaki (Naruto)"
-            },
-            {
-                quote: "Der Unterschied zwischen einem Anfänger und einem Meister ist, dass der Meister öfter gescheitert ist als der Anfänger es versucht hat.",
-                author: "Koro-sensei (Assassination Classroom)"
-            },
-            {
-                quote: "Ich werde niemals aufgeben! Ich werde mit den Karten gewinnen, die ich habe!",
-                author: "Yuma Tsukumo (Yu-Gi-Oh! Zexal)"
-            },
-            {
-                quote: "Ich werde der König der Piraten sein!",
-                author: "Monkey D. Luffy (One Piece)"
-            }
-        ];
+  </div>
 
-        const quoteElement = document.getElementById("quote");
-        const authorElement = document.getElementById("author");
-        const nextBtn = document.getElementById("nextBtn");
-        const shareBtn = document.getElementById("shareBtn");
-        const randomBtn = document.getElementById("randomBtn");
-        const themeSelect = document.getElementById("themeSelect");
-        const languageSelect = document.getElementById("languageSelect");
-
-        let currentQuote;
-        let currentTheme = "light-theme"; // Default theme is light
-        let currentLanguage = "english"; // Default language is English
-
-        function displayQuote() {
-            let selectedQuotes;
-            if (currentLanguage === "german") {
-                if (currentTheme === "anime-theme") {
-                    selectedQuotes = germanAnimeQuotes;
-                } else {
-                    selectedQuotes = germanQuotes;
-                }
-            } else {
-                if (currentTheme === "anime-theme") {
-                    selectedQuotes = animeQuotes;
-                } else {
-                    selectedQuotes = quotes;
-                }
-            }
-
-            currentQuote = selectedQuotes[currentQuoteIndex];
-            quoteElement.textContent = currentQuote.quote;
-            authorElement.textContent = "— " + currentQuote.author;
-        }
-
-        function nextQuote() {
-            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-            displayQuote();
-        }
-
-        function shareQuote() {
-            const quoteToShare = `${currentQuote.quote} - ${currentQuote.author}`;
-            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quoteToShare)}`;
-            window.open(twitterUrl, "_blank");
-        }
-
-        function getRandomQuote() {
-            currentQuoteIndex = Math.floor(Math.random() * quotes.length);
-            displayQuote();
-        }
-
-        function switchTheme() {
-            const selectedTheme = themeSelect.value;
-            document.body.classList.remove(currentTheme);
-            document.body.classList.add(selectedTheme);
-            currentTheme = selectedTheme;
-            displayQuote();
-        }
-
-        function switchLanguage() {
-            const selectedLanguage = languageSelect.value;
-            currentLanguage = selectedLanguage;
-            displayQuote();
-        }
-
-        nextBtn.addEventListener("click", nextQuote);
-        shareBtn.addEventListener("click", shareQuote);
-        randomBtn.addEventListener("click", getRandomQuote);
-        themeSelect.addEventListener("change", switchTheme);
-        languageSelect.addEventListener("change", switchLanguage);
-
-        let currentQuoteIndex = 0;
-        getRandomQuote();
-    </script>
+  <footer>
+    <p>© 2023 Lime Store. All rights reserved.</p>
+  </footer>
 </body>
-
 </html>
